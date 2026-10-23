@@ -1,0 +1,56 @@
+{
+  "name": "react-native-foldable",
+  "version": "0.1.0",
+  "description": "Fold posture, hinge angle and hinge bounds for React Native on foldable devices.",
+  "license": "MIT",
+  "author": "Vaibhav Mehar",
+  "homepage": "https://github.com/your-org/react-native-foldable",
+  "repository": "https://github.com/your-org/react-native-foldable.git",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index.ts",
+  "source": "src/index.ts",
+  "files": [
+    "src",
+    "lib",
+    "android/build.gradle",
+    "android/src",
+    "ios/*.h",
+    "ios/*.mm",
+    "react-native-foldable.podspec",
+    "README.md"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "bob build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.76"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "react": "19.2.3",
+    "react-native": "0.85.3",
+    "react-native-builder-bob": "^0.40.0",
+    "typescript": "^5.4.0"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      ["commonjs", { "esm": true }],
+      ["module", { "esm": true }],
+      ["typescript", { "project": "tsconfig.build.json" }]
+    ]
+  },
+  "codegenConfig": {
+    "name": "RNFoldableSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.reactnativefoldable"
+    }
+  }
+}
